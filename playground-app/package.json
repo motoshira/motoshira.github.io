@@ -1,0 +1,13 @@
+{
+  "name": "playground-app",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "shadow-cljs": "2.13.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "4.11.3",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  }
+}
