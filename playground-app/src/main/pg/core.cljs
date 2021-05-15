@@ -1,5 +1,6 @@
 (ns pg.core
   (:require
+   [pg.views :as pg.v]
    [reagent.core :as r]
    [reagent.dom :as rdom]))
 
@@ -11,6 +12,7 @@
 
 (defn ^:export init
   []
-  (rdom/render [MainComponent]
+  "Entry point"
+  (rdom/render [pg.v/MainComponent]
                (.getElementById js/document "root")
                fn-compiler))
