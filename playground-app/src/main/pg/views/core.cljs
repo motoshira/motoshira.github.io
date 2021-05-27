@@ -1,16 +1,13 @@
 (ns pg.views.core
   (:require
-   [pg.views.components :as pg.comp]
    [pg.util.re-frame :refer [>evt <sub]]
    [pg.route :as pg.r]
    [pg.subs :as pg.s]
+   [pg.views.components :as pg.comp]
    [reagent.core :as r]
-   [reagent-material-ui.components :as mui]
-   [reagent-material-ui.styles :as styles]))
+   [reagent-material-ui.components :as mui]))
 
 (defmulti Contents identity)
-
-;; About
 
 (defmethod Contents ::default
   [_]
@@ -19,6 +16,8 @@
 (defmethod Contents ::pg.r/home
   [_]
   [:div "Welcome!"])
+
+;; About
 
 (defmethod Contents ::pg.r/about
   [_]
@@ -34,7 +33,7 @@
 
 (defn MainComponent
   []
-  (let [route (<sub [::pg.s/current-route])]
-    (println route)
-    [pg.comp/RootComponent
-     [Contents route]]))
+  [pg.comp/RootComponent
+   (let [route (<sub [::pg.s/current-route])]
+     (println route)
+     [Contents route])])

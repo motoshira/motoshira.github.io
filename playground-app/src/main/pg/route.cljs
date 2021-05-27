@@ -7,13 +7,10 @@
 
 ;; ルーティング
 
-(def ^:private route
+(def route
   (r/router
    ["/"
     ["home" ::home]
     ["about" ::about]
     ["works" ::works]
     ["links" ::links]]))
-
-(defn match-path [path]
-  (u.r/match-path route path))

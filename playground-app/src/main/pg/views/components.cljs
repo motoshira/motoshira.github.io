@@ -1,65 +1,86 @@
 (ns pg.views.components
   "各ページで共通のコンポーネント"
   (:require
+   ["@material-ui/core/styles" :refer [makeStyles createMuiTheme ThemeProvider]]
+   [applied-science.js-interop :as j]
    [pg.events :as events]
    [pg.route :as route]
    [pg.util.reitit :as u.r]
    [pg.util.re-frame :refer [>evt]]
+   [accountant.core :as acc]
    [reagent.core :as r]
    [reagent-material-ui.components :as mui]
    [reagent-material-ui.styles :as styles]))
 
 ;; ナビ
 
+(def ^:private link-styles
+  (makeStyles
+   (clj->js
+    {:link {:height "100%"
+            :width "100%"}})))
+
 (defn Link
   ([props text]
-   [mui/link props
-    text])
+   (let [classes (link-styles)]
+     [mui/button
+      [mui/link (assoc props
+                       :underline :none
+                       :class-name (j/get classes :link))
+       text]]))
   ([text] (Link nil text)))
 
-(defn- navigate! [path]
-  (>evt [::events/set-current-route (u.r/match-path route/route path)]))
-
 (def ^:private navbar-styles
-  (styles/make-styles
-   {:root {:justify-content :space-between}
-    :title {:color :inherit}
-    :button {:align-self :center
-             :color :inherit}}))
+  (makeStyles
+   (clj->js
+    {:root {:justify-content :space-between}
+     :title {:color :inherit
+             :font-size "18px"}
+     :button {:align-self :center
+              :color :inherit}})))
 
 (defn NavBar []
-  (let [classes (navbar-styles)]
+  (let [classes (navbar-styles)
+        navigate! (fn [route-kw] (>evt [::events/navigate route-kw]))]
     [:<>
      [mui/app-bar {:position :fixed}
-      [mui/toolbar {:class-name (:root classes)}
-       [Link {:variant "h6"
-              :class-name (:title classes)
-              :on-click #(navigate! :home)}
+      [mui/toolbar {:class-name (j/get classes :root)}
+       [mui/button {:classes {:root (j/get classes :button)
+                              :label (j/get classes :title)}
+                    :on-click #(navigate! ::route/home)}
         "Playground"]
        [mui/grid {:xs 6
                   :container true
                   :justify :flex-end}
-        ;; TODO: Linkの追加
-        (for [[label path] [["About" "/about"]
-                            ["Works" "/works"]
-                            ["links" "/links"]]]
+        (for [[label route-kw] [["About" ::route/about]
+                                ["Works" ::route/works]
+                                ["links" ::route/links]]]
           ^{:key label}
           [mui/grid {:item true}
-           [mui/button {:class-name (:button classes)
+           [mui/button {:class-name (j/get classes :button)
                         :key label
-                        :on-click #(navigate! path)}
+                        :on-click #(navigate! route-kw)}
             label]])]]]
      ;; スペース確保
      [mui/toolbar]]))
 
+(def theme
+   "各コンポーネントで共通のテーマ"
+  (createMuiTheme
+   (clj->js {:typography {:button {:text-transform :none}}})))
+
 (def ^:private root-styles
-  (styles/make-styles
-   {:root {:height "100vh"
-           :width "100vw"}}))
+  (makeStyles
+   (clj->js
+    {:root {:height "100vh"
+            :width "100vw"}})))
 
 (defn RootComponent
+  "全てのページのRoot"
   [& children]
   (let [classes (root-styles)]
-    [:div {:class-name (:root classes)}
-     [NavBar]
-     children]))
+    [:> ThemeProvider {:theme theme}
+     [mui/css-baseline]
+     [:div {:class-name (j/get classes :root)}
+      [NavBar]
+      children]]))

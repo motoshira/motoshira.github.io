@@ -3,13 +3,14 @@
    [pg.views.core :as pg.v]
    [pg.route :as pg.r]
    [pg.config :as config]
-   [pg.util.re-frame :refer [>evt]]
-   [accountant.core :as acc]
+   [pg.util.re-frame :refer [>evt <sub]]
    [re-frame.core :as rf]
+   [pg.subs :as pg.s]
    [pg.events :as pg.e]
    [reagent.core :as r]
    [reagent.dom :as rdom]
-   [reitit.core :as reitit]))
+   [reitit.core :as reitit]
+   [reitit.frontend.easy :as rfe]))
 
 (defn dev-setup []
   (when config/debug?
@@ -23,11 +24,10 @@
   []
   "Entry point"
   (rf/dispatch-sync [::pg.e/initialize-db])
-  (acc/configure-navigation!
-   {:nav-handler (fn [path] (>evt [::pg.e/setview-current-route (pg.r/match-path path)]))
-    :path-exists? (fn [path] (boolean (reitit/match-by-path pg.r/route path)))})
-  (acc/dispatch-current!)
   (dev-setup)
+  (rfe/start! pg.r/route
+              (fn [_ _] nil)
+              {:use-fragment true})
   (rdom/render [pg.v/MainComponent]
                (.getElementById js/document "root")
                fn-compiler))
