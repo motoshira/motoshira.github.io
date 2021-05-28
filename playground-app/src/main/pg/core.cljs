@@ -20,14 +20,20 @@
 (def ^:private fn-compiler
   (r/create-compiler {:function-components true}))
 
-(defn ^:export init
-  []
+(defn render-components! []
+  (rdom/render [pg.v/MainComponent]
+               (.getElementById js/document "root")
+               fn-compiler))
+
+(defn ^:export init []
   "Entry point"
   (rf/dispatch-sync [::pg.e/initialize-db])
   (dev-setup)
   (rfe/start! pg.r/route
               (fn [_ _] nil)
               {:use-fragment true})
-  (rdom/render [pg.v/MainComponent]
-               (.getElementById js/document "root")
-               fn-compiler))
+  (render-components!))
+
+(defn ^:dev/after-load refresh-components! []
+  (render-components!)
+  (.log js/console "Refresh components completed."))
