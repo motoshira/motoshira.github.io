@@ -15,7 +15,10 @@
 
 (defmethod Contents ::pg.r/home
   [_]
-  [:div "Hello!"])
+  [mui/paper
+   [pg.comp/Title "Welcome!"]
+   [mui/typography
+    "This is motoshira's portfolio."]])
 
 ;; About
 
@@ -35,5 +38,4 @@
   []
   [pg.comp/RootComponent
    (let [route (<sub [::pg.s/current-route])]
-     (println route)
      [Contents route])])

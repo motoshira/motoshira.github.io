@@ -13,6 +13,10 @@
    [reagent-material-ui.styles :as styles]))
 
 
+(defn Title [text]
+  [mui/typography {:variant :h3}
+   text])
+
 (def ^:private navbar-styles
   (makeStyles
    (clj->js
@@ -67,4 +71,11 @@
      [mui/css-baseline]
      [:div {:class-name (j/get classes :root)}
       [NavBar]
-      children]]))
+      [mui/grid {:container true
+                 :direction :row
+                 :justify :center
+                 :align-items :center}
+       [mui/grid {:item true
+                  :xs 9}
+        [mui/paper
+         children]]]]]))
