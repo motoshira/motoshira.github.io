@@ -2,6 +2,7 @@
   "各ページで共通のコンポーネント"
   (:require
    ["@material-ui/core/styles" :refer [makeStyles createMuiTheme ThemeProvider]]
+   ["@material-ui/system" :refer [spacing]]
    [applied-science.js-interop :as j]
    [pg.events :as events]
    [pg.route :as route]
@@ -12,10 +13,20 @@
    [reagent-material-ui.components :as mui]
    [reagent-material-ui.styles :as styles]))
 
-
 (defn Title [text]
-  [mui/typography {:variant :h3}
-   text])
+  [mui/box {:pt 7}
+   [mui/typography {:variant :h3}
+    text]])
+
+(defn SubTitle [text]
+  [mui/box {:pt 6}
+   [mui/typography {:variant :h4}
+    text]])
+
+(defn Text [contents]
+  [mui/box {:pt 1}
+   [mui/typography contents]])
+
 
 (def ^:private navbar-styles
   (makeStyles
@@ -78,4 +89,9 @@
        [mui/grid {:item true
                   :xs 9}
         [mui/paper
-         children]]]]]))
+         [mui/grid {:container true
+                    :justify :center
+                    :align-items :center}
+          [mui/grid {:item true
+                     :xs 10}
+           children]]]]]]]))

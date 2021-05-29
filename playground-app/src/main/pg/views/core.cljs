@@ -1,5 +1,4 @@
-(ns pg.views.core
-  (:require
+(ns pg.views.core (:require
    [pg.util.re-frame :refer [>evt <sub]]
    [pg.route :as pg.r]
    [pg.subs :as pg.s]
@@ -15,10 +14,11 @@
 
 (defmethod Contents ::pg.r/home
   [_]
-  [mui/paper
+  [:<>
    [pg.comp/Title "Welcome!"]
-   [mui/typography
-    "This is motoshira's portfolio."]])
+   [pg.comp/SubTitle "これはなに"]
+   [pg.comp/Text
+    "もとしらの遊び場"]])
 
 ;; About
 
