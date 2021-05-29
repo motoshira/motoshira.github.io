@@ -23,12 +23,8 @@
     text]])
 
 (defn Text [contents]
-  [mui/box {:pt 1}
+  [mui/box {:pt 3}
    [mui/typography contents]])
-
-(defn Card [& contents]
-  [mui/card
-   contents])
 
 (def ^:private navbar-styles
   (makeStyles
@@ -50,13 +46,13 @@
                               :label (j/get classes :title)}
                     :key "Home"
                     :on-click #(navigate! ::route/home)}
-        "Playground"]
+        "もとしらの遊び場"]
        [mui/grid {:xs 6
                   :container true
                   :justify :flex-end}
         (for [[label route-kw] [["About" ::route/about]
                                 ["Works" ::route/works]
-                                ["links" ::route/links]]]
+                                ["Links" ::route/links]]]
           ^{:key label}
           [mui/grid {:item true}
            [mui/button {:class-name (j/get classes :button)
@@ -69,13 +65,18 @@
 (def ^:private theme
    "各コンポーネントで共通のテーマ"
   (createMuiTheme
-   (clj->js {:typography {:button {:text-transform :none}}})))
+   (clj->js {:palette {:type :dark}
+             :typography {:button {:text-transform :none}}})))
 
 (def ^:private root-styles
   (makeStyles
    (clj->js
     {:root {:height "100vh"
-            :width "100vw"}})))
+            :width "100vw"
+            :overflow-x :hidden}
+     :container {:height "90vh"}
+     :paper {:height "100%"
+             :width "100%"}})))
 
 (defn RootComponent
   "全てのページのRoot"
@@ -88,10 +89,11 @@
       [mui/grid {:container true
                  :direction :row
                  :justify :center
-                 :align-items :center}
+                 :align-items :flex-start}
        [mui/grid {:item true
-                  :xs 9}
-        [mui/paper
+                  :xs 11
+                  :class-name (j/get classes :container)}
+        [mui/paper {:class-name (j/get classes :paper)}
          [mui/grid {:container true
                     :justify :center
                     :align-items :center}

@@ -19,11 +19,19 @@
  (fn [route-kw]
    (rfe/push-state route-kw)))
 
+(rf/reg-fx
+ :logger
+ (fn [kw]
+   (.log js/console
+         (str kw
+              " dispatched"))))
+
 (rf/reg-event-fx
  ::push-state
  [rf/trim-v]
  (fn [{:keys [:db]} [route-kw]]
    {:db db
+    :logger ::push-state
     :push-state! route-kw}))
 
 ;; viewsからはこれを呼ぶ
