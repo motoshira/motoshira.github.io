@@ -3,6 +3,10 @@
    [pg.route :as pg.r]
    [pg.subs :as pg.s]
    [pg.views.components :as pg.comp]
+   [pg.views.home :refer [Home]]
+   [pg.views.about :refer [About]]
+   [pg.views.works :refer [Works]]
+   [pg.views.links :refer [Links]]
    [reagent.core :as r]
    [reagent-material-ui.components :as mui]))
 
@@ -14,25 +18,19 @@
 
 (defmethod Contents ::pg.r/home
   [_]
-  [:<>
-   [pg.comp/Title "Welcome!"]
-   [pg.comp/SubTitle "これはなに"]
-   [pg.comp/Text
-    "もとしらの遊び場"]])
-
-;; About
+  [Home])
 
 (defmethod Contents ::pg.r/about
   [_]
-  [:div "About: TODO"])
+  [About])
 
 (defmethod Contents ::pg.r/works
   [_]
-  [:div "Works: TODO"])
+  [Works])
 
 (defmethod Contents ::pg.r/links
   [_]
-  [:div "Links: TODO"])
+  [Links])
 
 (defn MainComponent
   []

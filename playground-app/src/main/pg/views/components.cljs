@@ -10,8 +10,7 @@
    [pg.util.re-frame :refer [>evt]]
    [accountant.core :as acc]
    [reagent.core :as r]
-   [reagent-material-ui.components :as mui]
-   [reagent-material-ui.styles :as styles]))
+   [reagent-material-ui.components :as mui]))
 
 (defn Title [text]
   [mui/box {:pt 7}
@@ -27,6 +26,9 @@
   [mui/box {:pt 1}
    [mui/typography contents]])
 
+(defn Card [& contents]
+  [mui/card
+   contents])
 
 (def ^:private navbar-styles
   (makeStyles
@@ -46,6 +48,7 @@
       [mui/toolbar {:class-name (j/get classes :root)}
        [mui/button {:classes {:root (j/get classes :button)
                               :label (j/get classes :title)}
+                    :key "Home"
                     :on-click #(navigate! ::route/home)}
         "Playground"]
        [mui/grid {:xs 6
@@ -76,7 +79,7 @@
 
 (defn RootComponent
   "全てのページのRoot"
-  [& children]
+  [child]
   (let [classes (root-styles)]
     [:> ThemeProvider {:theme theme}
      [mui/css-baseline]
@@ -94,4 +97,4 @@
                     :align-items :center}
           [mui/grid {:item true
                      :xs 10}
-           children]]]]]]]))
+           child]]]]]]]))
