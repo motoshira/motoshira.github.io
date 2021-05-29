@@ -15,7 +15,7 @@
 
 (defmethod Contents ::pg.r/home
   [_]
-  [:div "Welcome!"])
+  [:div "Hello!"])
 
 ;; About
 

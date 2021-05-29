@@ -12,23 +12,6 @@
    [reagent-material-ui.components :as mui]
    [reagent-material-ui.styles :as styles]))
 
-;; ナビ
-
-(def ^:private link-styles
-  (makeStyles
-   (clj->js
-    {:link {:height "100%"
-            :width "100%"}})))
-
-(defn Link
-  ([props text]
-   (let [classes (link-styles)]
-     [mui/button
-      [mui/link (assoc props
-                       :underline :none
-                       :class-name (j/get classes :link))
-       text]]))
-  ([text] (Link nil text)))
 
 (def ^:private navbar-styles
   (makeStyles
@@ -40,6 +23,7 @@
               :color :inherit}})))
 
 (defn NavBar []
+  "ナビゲーションバー"
   (let [classes (navbar-styles)
         navigate! (fn [route-kw] (>evt [::events/navigate route-kw]))]
     [:<>
@@ -64,7 +48,7 @@
      ;; スペース確保
      [mui/toolbar]]))
 
-(def theme
+(def ^:private theme
    "各コンポーネントで共通のテーマ"
   (createMuiTheme
    (clj->js {:typography {:button {:text-transform :none}}})))
