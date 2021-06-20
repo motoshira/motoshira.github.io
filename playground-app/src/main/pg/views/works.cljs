@@ -5,4 +5,4 @@
 (defn Works []
   [:<>
    [c/Title "Works"]
-   [c/Text "Coming Soon..."]])
+   [c/Text "作ったものをここに載せていきたいと思っています。Coming soon..."]])

@@ -2,6 +2,7 @@
   "各ページで共通のコンポーネント"
   (:require
    ["@material-ui/core/styles" :refer [makeStyles createMuiTheme ThemeProvider]]
+   [clojure.string :refer [join]]
    ["@material-ui/system" :refer [spacing]]
    [applied-science.js-interop :as j]
    [pg.events :as events]
@@ -31,7 +32,9 @@
    (clj->js
     {:root {:justify-content :space-between}
      :title {:color :inherit
-             :font-size "18px"}
+             :white-space :nowrap
+             :font-size "16px"}
+     :container {:width "50%"}
      :button {:align-self :center
               :color :inherit}})))
 
@@ -47,14 +50,15 @@
                     :key "Home"
                     :on-click #(navigate! ::route/home)}
         "もとしらの遊び場"]
-       [mui/grid {:xs 6
-                  :container true
-                  :justify :flex-end}
+       [mui/grid {:container true
+                  :justify :flex-end
+                  :class-name (j/get classes :container)}
         (for [[label route-kw] [["About" ::route/about]
                                 ["Works" ::route/works]
                                 ["Links" ::route/links]]]
-          ^{:key label}
-          [mui/grid {:item true}
+          [mui/grid {:key label
+                     :item true
+                     :xs 1}
            [mui/button {:class-name (j/get classes :button)
                         :key label
                         :on-click #(navigate! route-kw)}
@@ -65,8 +69,13 @@
 (def ^:private theme
    "各コンポーネントで共通のテーマ"
   (createMuiTheme
-   (clj->js {:palette {:type :dark}
-             :typography {:button {:text-transform :none}}})))
+   (clj->js {:palette {:type :dark
+                       :primary {:main "#03a9f4"}
+                       :secondary {:main "#003676"}}
+             :typography {:font-family (join ["sans-serif"]
+                                             ",")
+
+                          :button {:text-transform :none}}})))
 
 (def ^:private root-styles
   (makeStyles

@@ -30,7 +30,8 @@
   (rf/dispatch-sync [::pg.e/initialize-db])
   (dev-setup)
   (rfe/start! pg.r/route
-              (fn [_ _] nil)
+              (fn [_ m]
+                (println (str "match: " m)))
               {:use-fragment true})
   (render-components!))
 

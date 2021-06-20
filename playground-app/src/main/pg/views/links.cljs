@@ -5,4 +5,7 @@
 (defn Links []
   [:<>
    [c/Title "Links"]
-   [c/Text "Coming Soon..."]])
+   [c/Text
+    [:ul
+     [:li "Github: "]
+     [:li "Twitter: "]]]])

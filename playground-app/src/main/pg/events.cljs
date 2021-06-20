@@ -40,5 +40,7 @@
  ::navigate
  [rf/trim-v]
  (fn [{:keys [:db]} [route-kw]]
-   {:db (assoc db :route route-kw)
-    :dispatch [::push-state route-kw]}))
+   {:db (assoc db
+               :route route-kw)
+    :dispatch [::push-state route-kw]
+    :logger ::mavigate}))
