@@ -26,22 +26,21 @@ showReadingTime = false
     # lastModDisplay = ""
 
     [languages.en.params.logo]
-      logoText = "motoshira.net"
-      logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
+    #   logoText = "motoshira.net"
+    #   logoHomeLink = "/"
+      path = "/icon_picture.png"
+      alt = "Your example logo alt text"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
+        identifier = "posts"
+        name = "Posts"
+        url = "/posts"
       [[languages.en.menu.main]]
-        identifier = "showcase"
-        name = "Showcase"
-        url = "/showcase"
+        identifier = "profile"
+        name = "Profile"
+        url = "/profile"
+
   [languages.jp]
     title = "motoshira.net"
     subtitle = "motoshira's web site"
@@ -60,19 +59,17 @@ showReadingTime = false
     # lastModDisplay = ""
 
     [languages.jp.params.logo]
-      logoText = "motoshira.net"
-      logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
+    #   logoText = "motoshira.net"
+    #   logoHomeLink = "/"
+      path = "/icon_picture.png"
+      alt = "Your example logo alt text"
 
     [languages.jp.menu]
       [[languages.jp.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
+        identifier = "posts"
+        name = "Posts"
+        url = "/posts"
       [[languages.jp.menu.main]]
-        identifier = "showcase"
-        name = "Showcase"
-        url = "/showcase"
+        identifier = "profile"
+        name = "Profile"
+        url = "/profile"
