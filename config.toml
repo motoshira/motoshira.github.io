@@ -1,9 +1,8 @@
 baseurl = "/"
-languageCode = "ja"
-defaultContentLanguage = "ja"
+# languageCode = "ja"
+# defaultContentLanguage = "ja"
 hasCJKLanguage = true
 title = "motoshira.net"
-
 theme = "hello-friend"
 showReadingTime = false
 
