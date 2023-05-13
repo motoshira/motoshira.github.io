@@ -4,6 +4,8 @@ title: "About"
 
 ### Applications
 
+Coming soon.
+
 ### Experience
 
 2021- : TOYOKUMO inc.
