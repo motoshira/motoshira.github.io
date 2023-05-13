@@ -2,15 +2,15 @@ baseurl = "/"
 # languageCode = "ja"
 # defaultContentLanguage = "ja"
 hasCJKLanguage = true
-title = "My New Hugo Site"
+title = "motoshira.net"
 
 theme = "hello-friend"
 showReadingTime = false
 
 [languages]
   [languages.en]
-    title = "Hello Friend"
-    subtitle = "A simple theme for Hugo"
+    title = "motoshira.net"
+    subtitle = "motoshira's web site"
     keywords = ""
     copyright = ""
     menuMore = "Show more"
@@ -26,7 +26,7 @@ showReadingTime = false
     # lastModDisplay = ""
 
     [languages.en.params.logo]
-      logoText = "hello friend"
+      logoText = "motoshira.net"
       logoHomeLink = "/"
     # or
     #
@@ -43,10 +43,10 @@ showReadingTime = false
         name = "Showcase"
         url = "/showcase"
   [languages.jp]
-    title = "Hello Friend"
-    subtitle = "A simple theme for Hugo"
+    title = "motoshira.net"
+    subtitle = "motoshira's web site"
     keywords = ""
-    copyright = ""
+    copyright = "motoshira"
     menuMore = "Show more"
     writtenBy = "Written by"
     readMore = "Read more"
@@ -60,7 +60,7 @@ showReadingTime = false
     # lastModDisplay = ""
 
     [languages.jp.params.logo]
-      logoText = "hello friend"
+      logoText = "motoshira.net"
       logoHomeLink = "/"
     # or
     #
