@@ -1,2 +1,3 @@
 # motoshira.github.io
-Playground for me
+
+Hosted on https://motoshira.github.io
