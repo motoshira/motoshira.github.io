@@ -1,6 +1,8 @@
+[params]
+
 baseurl = "/"
-# languageCode = "ja"
-# defaultContentLanguage = "ja"
+languageCode = "ja"
+defaultContentLanguage = "ja"
 hasCJKLanguage = true
 title = "motoshira.net"
 
