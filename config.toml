@@ -1,0 +1,5 @@
+languageCode = 'ja'
+defaultContentLanguage = 'ja'
+hasCJKLanguage = true
+title = 'My New Hugo Site'
+baseURL = 'http://example.org/'
