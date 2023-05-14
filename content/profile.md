@@ -4,7 +4,7 @@ title: "About"
 
 ### Applications
 
-Coming soon...
+Coming soon
 
 ### Experience
 
