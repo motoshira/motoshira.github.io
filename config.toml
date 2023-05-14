@@ -13,7 +13,7 @@ showReadingTime = false
     keywords = ""
     copyright = ""
     menuMore = "Show more"
-    writtenBy = "Written by"
+    writtenBy = ""
     readMore = "Read more"
     readOtherPosts = "Read other posts"
     newerPosts = "Newer posts"
@@ -36,39 +36,6 @@ showReadingTime = false
         name = "Posts"
         url = "/posts"
       [[languages.en.menu.main]]
-        identifier = "profile"
-        name = "Profile"
-        url = "/profile"
-
-  [languages.jp]
-    title = "motoshira.net"
-    subtitle = "motoshira's web site"
-    keywords = ""
-    copyright = "motoshira"
-    menuMore = "Show more"
-    writtenBy = "Written by"
-    readMore = "Read more"
-    readOtherPosts = "Read other posts"
-    newerPosts = "Newer posts"
-    olderPosts = "Older posts"
-    minuteReadingTime = "min read"
-    dateFormatSingle = "2006-01-02"
-    dateFormatList = "2006-01-02"
-    # leave empty to disable, enter display text to enable
-    # lastModDisplay = ""
-
-    [languages.jp.params.logo]
-    #   logoText = "motoshira.net"
-    #   logoHomeLink = "/"
-      path = "/icon_picture.png"
-      alt = "Your example logo alt text"
-
-    [languages.jp.menu]
-      [[languages.jp.menu.main]]
-        identifier = "posts"
-        name = "Posts"
-        url = "/posts"
-      [[languages.jp.menu.main]]
         identifier = "profile"
         name = "Profile"
         url = "/profile"
