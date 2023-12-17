@@ -23,7 +23,7 @@ function App(): ReactElement {
       <main className="py-6">
         <SectionWrap>
           <Section>
-            <img height="312" width="312" src="/me.webp" className="rounded-[50%] mx-auto" alt="my Logo" />
+            <img height="312" width="312" src="/me.webp" className="rounded-[50%] mx-auto border-2 border-gray-200" alt="my Logo" />
           </Section>
         </SectionWrap>
         <SectionWrap>
