@@ -50,6 +50,20 @@ function App(): ReactElement {
             </ul>
           </Section>
           <Section>
+            <Heading2>Likes</Heading2>
+            <dl>
+              <div className="flex space-x-2">
+                <dt>Programming Languages:</dt>
+                <dd>Clojure, Common Lisp, TypeScript, etc.</dd>
+              </div>
+              <div className="flex space-x-2">
+                <dt>Hobby:</dt>
+                <dd>Reading, Watch anime, Hot spring hopping</dd>
+              </div>
+            </dl>
+          </Section>
+
+          <Section>
             <Heading2>Education</Heading2>
             <SectionItem>
               <Text1>
