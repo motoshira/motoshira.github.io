@@ -20,7 +20,7 @@ function App(): ReactElement {
   return (
     <div className="h-[100dvh] w-full">
       <Navigation />
-      <main>
+      <main className="py-6">
         <SectionWrap>
           <Section>
             <img height="312" width="312" src="/me.webp" className="rounded-[50%] mx-auto" alt="my Logo" />
