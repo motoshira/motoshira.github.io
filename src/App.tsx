@@ -8,7 +8,7 @@ import SectionItem from './components/SectionItem'
 
 const Navigation = (): ReactElement => {
   return (
-    <nav className="sticky top-0 bg-gray-200 h-[60px] flex items-center shadow-md">
+    <nav className="sticky top-0 bg-gray-300 h-[60px] flex items-center shadow-md">
       <a href="/" className="text-xl ml-6 font-bold hover:underline decoration-2">
         motoshira.net
       </a>
@@ -18,7 +18,7 @@ const Navigation = (): ReactElement => {
 
 function App(): ReactElement {
   return (
-    <div className="h-[100dvh] w-full">
+    <div className="w-full h-full">
       <Navigation />
       <main className="py-6">
         <SectionWrap>
