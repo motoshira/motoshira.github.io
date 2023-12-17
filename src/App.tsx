@@ -36,9 +36,9 @@ function App(): ReactElement {
           <Section>
             <Heading2>Applications</Heading2>
             <SectionItem>
-            <Text1>
-              Coming soon...
-            </Text1>
+              <Text1>
+                Coming soon...
+              </Text1>
             </SectionItem>
           </Section>
           <Section>
