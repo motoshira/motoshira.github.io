@@ -91,9 +91,6 @@ function App(): ReactElement {
           </Section>
         </SectionWrap>
       </main>
-      <footer>
-
-      </footer>
     </div>
   )
 }
