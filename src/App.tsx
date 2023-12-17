@@ -10,7 +10,7 @@ const Navigation = (): ReactElement => {
   return (
     <nav className="sticky top-0 bg-gray-200 h-[60px] flex items-center">
       <a href="/" className="text-xl ml-6 hover:underline decoration-2">
-        motoshira.github.io
+        motoshira.net
       </a>
     </nav>
   );
