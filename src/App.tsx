@@ -9,7 +9,7 @@ import SectionItem from './components/SectionItem'
 const Navigation = (): ReactElement => {
   return (
     <nav className="sticky top-0 bg-gray-200 h-[60px] flex items-center shadow-md">
-      <a href="/" className="text-xl ml-6 hover:underline decoration-2">
+      <a href="/" className="text-xl ml-6 font-bold hover:underline decoration-2">
         motoshira.net
       </a>
     </nav>
