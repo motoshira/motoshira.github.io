@@ -80,7 +80,11 @@ function App(): ReactElement {
                   url: 'https://github.com/motoshira',
                 },
                 {
-                  label: 'X(Twitter)',
+                  label: "Bluesky",
+                  url: "https://bsky.app/profile/motoshira.bsky.social"
+                },
+                {
+                  label: 'X (Twitter)',
                   url: 'https://twitter.com/darjeeling743',
                 },
                 {
