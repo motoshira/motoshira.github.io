@@ -5,6 +5,8 @@ import Heading1 from '@/components/Heading1'
 import Heading2 from '@/components/Heading2'
 import Text1 from '@/components/Text1';
 import SectionItem from './components/SectionItem'
+import Text2 from '@/components/Text1'
+import LinkText from './components/LinkText'
 
 const Navigation = (): ReactElement => {
   return (
@@ -131,14 +133,7 @@ function App(): ReactElement {
               ].map(({ label, url }) => {
                 return (
                   <li key={label} className="list-disc list-inside ml-1">
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline decoration-2"
-                    >
-                      <Text1>{label}</Text1>
-                    </a>
+                    <LinkText href={url}>{label}</LinkText>
                   </li>
                 )
               })}
