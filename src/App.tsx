@@ -51,18 +51,55 @@ function App(): ReactElement {
           </Section>
           <Section>
             <Heading2>Likes</Heading2>
-            <dl>
-              <div className="flex space-x-2">
-                <dt>Programming Languages:</dt>
-                <dd>Clojure, Common Lisp, TypeScript, etc.</dd>
-              </div>
-              <div className="flex space-x-2">
-                <dt>Hobby:</dt>
-                <dd>Reading, Watch anime, Hot spring hopping</dd>
-              </div>
-            </dl>
+            <div className="[&_ul]:list-disc [&_ul_ul]:list-[circle] [&_ul]:ml-6 [&_ul]:list-inside">
+              <ul>
+                <li>
+                  <Text2>
+                    Programming Languages
+                  </Text2>
+                  <ul>
+                    <li>
+                      <Text2>
+                        Clojure
+                      </Text2>
+                    </li>
+                    <li>
+                      <Text2>
+                        Common Lisp
+                      </Text2>
+                    </li>
+                    <li>
+                      <Text2>
+                        TypeScript
+                      </Text2>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Text2>
+                    Hobby
+                  </Text2>
+                  <ul>
+                    <li>
+                      <Text2>
+                        Reading
+                      </Text2>
+                    </li>
+                    <li>
+                      <Text2>
+                        Watch anime
+                      </Text2>
+                    </li>
+                    <li>
+                      <Text2>
+                        Hot spring hopping
+                      </Text2>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </Section>
-
           <Section>
             <Heading2>Education</Heading2>
             <SectionItem>
