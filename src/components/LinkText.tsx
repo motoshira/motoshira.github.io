@@ -1,7 +1,7 @@
-import { ReactNode, ReactElement } from 'react';
+import { type ReactNode, type ReactElement } from 'react';
 import Text1 from '@/components/Text1';
 
-type Props = {
+interface Props {
   href: string;
   children: ReactNode;
 }
@@ -12,7 +12,7 @@ const LinkText = ({ href, children }: Props): ReactElement => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="underline decoration-2 text-blue-600 hover:opacity-70"
+      className="text-blue-600 underline decoration-2 hover:opacity-70"
     >
       <Text1>{children}</Text1>
     </a>

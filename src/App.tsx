@@ -1,46 +1,52 @@
-import { type ReactElement } from 'react'
-import Section from '@/components/Section'
-import SectionWrap from '@/components/SectionWrap'
-import Heading1 from '@/components/Heading1'
-import Heading2 from '@/components/Heading2'
+import Section from '@/components/Section';
+import SectionWrap from '@/components/SectionWrap';
+import Heading1 from '@/components/Heading1';
+import Heading2 from '@/components/Heading2';
 import Text1 from '@/components/Text1';
-import SectionItem from './components/SectionItem'
-import Text2 from '@/components/Text1'
-import LinkText from './components/LinkText'
+import SectionItem from './components/SectionItem';
+import Text2 from '@/components/Text2';
+import LinkText from './components/LinkText';
 
-const Navigation = (): ReactElement => {
+const Navigation = () => {
   return (
-    <nav className="sticky top-0 bg-gray-300 h-[60px] flex items-center shadow-md">
-      <a href="/" className="text-xl ml-6 font-bold hover:underline decoration-2">
+    <nav className="sticky top-0 flex h-[60px] items-center bg-gray-300 shadow-md">
+      <a
+        href="/"
+        className="ml-6 text-xl font-bold decoration-2 hover:underline"
+      >
         motoshira.net
       </a>
     </nav>
   );
-}
+};
 
-function App(): ReactElement {
+function App() {
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       <Navigation />
       <main className="py-6">
         <SectionWrap>
           <Section>
-            <img height="312" width="312" src="/me.webp" className="rounded-[50%] mx-auto border-2 border-gray-200" alt="my Logo" />
+            <img
+              height="312"
+              width="312"
+              src="/me.webp"
+              className="mx-auto rounded-[50%] border-2 border-gray-200"
+              alt="my Logo"
+            />
           </Section>
         </SectionWrap>
         <SectionWrap>
           <Section>
             <Heading1>motoshira</Heading1>
-            <p className="text-gray-600 text-lg lg:text-xl">Kohei Hosoki</p>
+            <p className="text-lg text-gray-600 lg:text-xl">Kohei Hosoki</p>
           </Section>
         </SectionWrap>
         <SectionWrap>
           <Section>
             <Heading2>Applications</Heading2>
             <SectionItem>
-              <Text1>
-                Coming soon...
-              </Text1>
+              <Text1>Coming soon...</Text1>
             </SectionItem>
           </Section>
           <Section>
@@ -53,49 +59,33 @@ function App(): ReactElement {
           </Section>
           <Section>
             <Heading2>Likes</Heading2>
-            <div className="[&_ul]:list-disc [&_ul_ul]:list-[circle] [&_ul]:ml-6 [&_ul]:list-inside">
+            <div className="[&_ul]:ml-6 [&_ul]:list-inside [&_ul]:list-disc [&_ul_ul]:list-[circle]">
               <ul>
                 <li>
-                  <Text2>
-                    Programming Languages
-                  </Text2>
+                  <Text2>Programming Languages</Text2>
                   <ul>
                     <li>
-                      <Text2>
-                        Clojure
-                      </Text2>
+                      <Text2>Clojure</Text2>
                     </li>
                     <li>
-                      <Text2>
-                        Common Lisp
-                      </Text2>
+                      <Text2>Common Lisp</Text2>
                     </li>
                     <li>
-                      <Text2>
-                        TypeScript
-                      </Text2>
+                      <Text2>TypeScript</Text2>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <Text2>
-                    Hobby
-                  </Text2>
+                  <Text2>Hobby</Text2>
                   <ul>
                     <li>
-                      <Text2>
-                        Reading
-                      </Text2>
+                      <Text2>Reading</Text2>
                     </li>
                     <li>
-                      <Text2>
-                        Watch anime
-                      </Text2>
+                      <Text2>Watch anime</Text2>
                     </li>
                     <li>
-                      <Text2>
-                        Hot spring hopping
-                      </Text2>
+                      <Text2>Hot spring hopping</Text2>
                     </li>
                   </ul>
                 </li>
@@ -119,8 +109,8 @@ function App(): ReactElement {
                   url: 'https://github.com/motoshira',
                 },
                 {
-                  label: "Bluesky",
-                  url: "https://bsky.app/profile/motoshira.bsky.social"
+                  label: 'Bluesky',
+                  url: 'https://bsky.app/profile/motoshira.bsky.social',
                 },
                 {
                   label: 'X (Twitter)',
@@ -132,17 +122,17 @@ function App(): ReactElement {
                 },
               ].map(({ label, url }) => {
                 return (
-                  <li key={label} className="list-disc list-inside ml-1">
+                  <li key={label} className="ml-1 list-inside list-disc">
                     <LinkText href={url}>{label}</LinkText>
                   </li>
-                )
+                );
               })}
             </ul>
           </Section>
         </SectionWrap>
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
