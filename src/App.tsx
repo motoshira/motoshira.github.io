@@ -9,7 +9,7 @@ import LinkText from './components/LinkText';
 
 const Navigation = () => {
   return (
-    <nav className="sticky top-0 flex h-[60px] items-center bg-gray-300 shadow-md">
+    <nav className="sticky top-0 flex h-[60px] items-center bg-primary shadow-md">
       <a
         href="/"
         className="ml-6 text-xl font-bold decoration-2 hover:underline"
@@ -31,7 +31,7 @@ function App() {
               height="312"
               width="312"
               src="/me.webp"
-              className="mx-auto rounded-[50%] border-2 border-gray-200"
+              className="border-gray-200 mx-auto rounded-[50%] border-2"
               alt="my Logo"
             />
           </Section>
@@ -39,7 +39,7 @@ function App() {
         <SectionWrap>
           <Section>
             <Heading1>motoshira</Heading1>
-            <p className="text-lg text-gray-600 lg:text-xl">Kohei Hosoki</p>
+            <p className="text-gray-600 text-lg lg:text-xl">Kohei Hosoki</p>
           </Section>
         </SectionWrap>
         <SectionWrap>
