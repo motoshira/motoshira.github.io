@@ -59,7 +59,7 @@ function App() {
           </Section>
           <Section>
             <Heading2>Likes</Heading2>
-            <div className="[&_ul]:ml-6 [&_ul]:list-inside [&_ul]:list-disc [&_ul_ul]:list-[circle]">
+            <div className="[&_ul]:list-inside [&_ul]:list-disc [&_ul]:pl-6 [&_ul_ul]:list-[circle]">
               <ul>
                 <li>
                   <Text2>Programming Languages</Text2>
@@ -102,7 +102,7 @@ function App() {
           </Section>
           <Section>
             <Heading2>Links</Heading2>
-            <ul>
+            <ul className="ml-3 list-inside">
               {[
                 {
                   label: 'GitHub',
