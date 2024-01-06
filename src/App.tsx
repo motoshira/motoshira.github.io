@@ -31,7 +31,7 @@ function App() {
               height="312"
               width="312"
               src="/me.webp"
-              className="border-gray-200 mx-auto rounded-[50%] border-2"
+              className="mx-auto rounded-[50%] shadow-md"
               alt="my Logo"
             />
           </Section>
