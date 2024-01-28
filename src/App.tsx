@@ -79,13 +79,13 @@ function App() {
                   <Text2>Hobby</Text2>
                   <ul>
                     <li>
-                      <Text2>Reading</Text2>
+                      <Text2>Reading 📕</Text2>
                     </li>
                     <li>
-                      <Text2>Watch anime</Text2>
+                      <Text2>Watch anime 📺</Text2>
                     </li>
                     <li>
-                      <Text2>Hot spring hopping</Text2>
+                      <Text2>Karaoke 🎤</Text2>
                     </li>
                   </ul>
                 </li>
