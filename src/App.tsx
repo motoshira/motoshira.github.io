@@ -53,7 +53,7 @@ function App() {
             <Heading2>Experience</Heading2>
             <ul>
               <li>
-                <Text1>2021~ TOYOKUMO Inc.</Text1>
+                <Text1>2021/4~ TOYOKUMO Inc.</Text1>
               </li>
             </ul>
           </Section>
@@ -65,13 +65,13 @@ function App() {
                   <Text2>Programming Languages</Text2>
                   <ul>
                     <li>
+                      <Text2>TypeScript</Text2>
+                    </li>
+                    <li>
                       <Text2>Clojure</Text2>
                     </li>
                     <li>
                       <Text2>Common Lisp</Text2>
-                    </li>
-                    <li>
-                      <Text2>TypeScript</Text2>
                     </li>
                   </ul>
                 </li>
