@@ -24,7 +24,7 @@ const Bubble = () => {
   return (
     <div
       ref={ref}
-      className="w-[30px] h-[30px] z-10 absolute transition-all pointer-none border lg:border-2 border-secondary rounded-[50%]"
+      className="w-[30px] h-[30px] z-10 absolute transition-all pointer-none border lg:border-2 border-primary rounded-[50%]"
     />
   );
 };
