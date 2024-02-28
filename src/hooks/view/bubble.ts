@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useRef } from 'react';
 
 const useRandomGenerator = ({
   init,
@@ -11,26 +11,26 @@ const useRandomGenerator = ({
   min: number;
   max: number;
 }) => {
-  const [num, setNum] = useState(init);
+  const num = useRef(init);
   return {
     getNext() {
       const newNum = Math.max(
         min,
-        Math.min(max, num - maxDiff / 2 + Math.random() * maxDiff)
+        Math.min(max, num.current - maxDiff / 2 + Math.random() * maxDiff)
       );
-      setNum(newNum);
+      num.current = newNum;
       return newNum;
     },
     reset() {
-      setNum(init);
+      num.current = init;
     },
   };
 };
 
 export const useGenerateBubbleKeyframes = () => {
   const getR = useRandomGenerator({
-    init: 1,
-    maxDiff: 1,
+    init: 1.0,
+    maxDiff: 1.0,
     min: 0.5,
     max: 3.0,
   });
@@ -41,21 +41,19 @@ export const useGenerateBubbleKeyframes = () => {
     max: 30,
   });
   const getTheta = useRandomGenerator({
-    init: 90,
+    init: 270,
     maxDiff: 10,
-    min: 30,
-    max: 150,
+    min: 210,
+    max: 330,
   });
-  return useCallback(() => {
-    // TODO startを決めた後、次の点を打っていく
-    // TODO 画面外に出たら終了
+  return () => {
     const keyframes = [];
     const r = getR.getNext();
-    let x = 30 + Math.random() * 60;
-    let y = 0;
+    let x = Math.random() * 100;
+    let y = 110;
     getV.reset();
     getTheta.reset();
-    while (y < 100) {
+    while (y > -10) {
       const v = getV.getNext();
       const theta = getTheta.getNext();
       const dx = (v * Math.cos((theta * Math.PI) / 180)) / 10;
@@ -63,10 +61,10 @@ export const useGenerateBubbleKeyframes = () => {
       x += dx;
       y += dy;
       keyframes.push({
-        transform: `translate(${x}vw, ${y}vh) scale(${r})`,
+        transform: `translate(${x}dvw, ${y}dvh) scale(${r})`,
+        opacity: (y / 2 + 10) / 100,
       });
     }
-    console.log(keyframes);
     return keyframes;
-  }, []);
+  };
 };
