@@ -134,7 +134,7 @@ function App() {
           </SectionWrap>
         </main>
       </div>
-      <div className="pointer-none h-[100vh] w-[100vw] bg-transparent fixed top-0 left-0">
+      <div className="pointer-events-none h-[100vh] w-[100vw] bg-transparent fixed top-0 left-0">
         {(() => {
           const bubbles = [];
           for (let i = 0; i < 10; i++) {
