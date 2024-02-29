@@ -29,9 +29,9 @@ const useRandomGenerator = ({
 
 export const useGenerateBubbleKeyframes = () => {
   const getR = useRandomGenerator({
-    init: 1.0,
-    maxDiff: 1.0,
-    min: 0.5,
+    init: 1.6,
+    maxDiff: 1.4,
+    min: 0.2,
     max: 3.0,
   });
   const getV = useRandomGenerator({
