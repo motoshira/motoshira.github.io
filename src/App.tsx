@@ -7,6 +7,7 @@ import SectionItem from '@/components/SectionItem';
 import Text2 from '@/components/Text2';
 import LinkText from '@/components/LinkText';
 import Bubble from '@/components/Bubble';
+import { useEffect, useState } from 'react';
 
 const Navigation = () => {
   return (
@@ -18,6 +19,29 @@ const Navigation = () => {
         motoshira.net
       </a>
     </nav>
+  );
+};
+
+const Bubbles = () => {
+  const [isPC, setIsPC] = useState(false);
+  const bubbleAmount = isPC ? 30 : 10;
+  useEffect(() => {
+    window
+      .matchMedia('screen and (min-width: 768px)')
+      .addEventListener('change', (e) => {
+        setIsPC(e.matches);
+      });
+  }, []);
+  return (
+    <div className="pointer-events-none h-[100vh] w-[100vw] bg-transparent fixed top-0 left-0">
+      {(() => {
+        const bubbles = [];
+        for (let i = 0; i < bubbleAmount; i++) {
+          bubbles.push(<Bubble key={i} />);
+        }
+        return bubbles;
+      })()}
+    </div>
   );
 };
 
@@ -134,15 +158,7 @@ function App() {
           </SectionWrap>
         </main>
       </div>
-      <div className="pointer-events-none h-[100vh] w-[100vw] bg-transparent fixed top-0 left-0">
-        {(() => {
-          const bubbles = [];
-          for (let i = 0; i < 10; i++) {
-            bubbles.push(<Bubble key={i} />);
-          }
-          return bubbles;
-        })()}
-      </div>
+      <Bubbles />
     </div>
   );
 }
