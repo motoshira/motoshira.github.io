@@ -22,6 +22,7 @@ const Navigation = () => {
   );
 };
 
+// TODO Rewrite with WebGLx
 const Bubbles = () => {
   const [isPC, setIsPC] = useState(false);
   const bubbleAmount = isPC ? 30 : 10;
@@ -79,7 +80,10 @@ function App() {
               <Heading2>Experience</Heading2>
               <ul>
                 <li>
-                  <Text1>2021/4~ TOYOKUMO Inc.</Text1>
+                  <Text1>2021/4~2024/3 トヨクモ株式会社</Text1>
+                </li>
+                <li>
+                  <Text1>2024/4~ 株式会社L is B</Text1>
                 </li>
               </ul>
             </Section>
