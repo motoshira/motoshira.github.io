@@ -1,10 +1,9 @@
 import Section from '@/components/Section';
-import SectionWrap from '@/components/SectionWrap';
 import Heading1 from '@/components/Heading1';
 import Heading2 from '@/components/Heading2';
+import Heading3 from '@/components/Heading3';
 import Text1 from '@/components/Text1';
 import SectionItem from '@/components/SectionItem';
-import Text2 from '@/components/Text2';
 import LinkText from '@/components/LinkText';
 import Bubble from '@/components/Bubble';
 import { useEffect, useState } from 'react';
@@ -20,6 +19,10 @@ const Navigation = () => {
       </a>
     </nav>
   );
+};
+
+const HobbySubSectionWrap = ({ children }) => {
+  return <div className="flex flex-col w-full space-y-1">{children}</div>;
 };
 
 // TODO Rewrite with WebGLx
@@ -52,114 +55,112 @@ function App() {
       <div className="top-0 left-0 h-full w-full">
         <Navigation />
         <main className="py-6">
-          <SectionWrap>
-            <Section>
-              <img
-                height="312"
-                width="312"
-                src="/me.webp"
-                className="mx-auto rounded-[50%] shadow-md"
-                alt="my Logo"
-              />
-            </Section>
-          </SectionWrap>
-          <SectionWrap>
-            <Section>
-              <Heading1>motoshira</Heading1>
-              <p className="text-gray-600 text-lg lg:text-xl">Kohei Hosoki</p>
-            </Section>
-          </SectionWrap>
-          <SectionWrap>
-            <Section>
-              <Heading2>Applications</Heading2>
-              <SectionItem>
-                <Text1>Coming soon...</Text1>
-              </SectionItem>
-            </Section>
-            <Section>
-              <Heading2>Experience</Heading2>
-              <ul>
-                <li>
-                  <Text1>2021/4~2024/3 トヨクモ株式会社</Text1>
-                </li>
-                <li>
-                  <Text1>2024/4~ 株式会社L is B</Text1>
-                </li>
-              </ul>
-            </Section>
-            <Section>
-              <Heading2>Likes</Heading2>
-              <div className="[&_ul]:list-inside [&_ul]:list-disc [&_ul]:pl-6 [&_ul_ul]:list-[circle]">
-                <ul>
-                  <li>
-                    <Text2>Programming Languages</Text2>
-                    <ul>
-                      <li>
-                        <Text2>TypeScript</Text2>
-                      </li>
-                      <li>
-                        <Text2>Clojure</Text2>
-                      </li>
-                      <li>
-                        <Text2>Common Lisp</Text2>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <Text2>Hobby</Text2>
-                    <ul>
-                      <li>
-                        <Text2>Reading 📕</Text2>
-                      </li>
-                      <li>
-                        <Text2>Watch anime 📺</Text2>
-                      </li>
-                      <li>
-                        <Text2>Karaoke 🎤</Text2>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </Section>
-            <Section>
-              <Heading2>Education</Heading2>
-              <SectionItem>
+          <Section>
+            <img
+              height="312"
+              width="312"
+              src="/me.webp"
+              className="mx-auto rounded-[50%] shadow-md"
+              alt="my Logo"
+            />
+          </Section>
+          <Section>
+            <Heading1>motoshira</Heading1>
+            <p className="text-gray-600 text-lg lg:text-xl">Kohei Hosoki</p>
+          </Section>
+          <Section>
+            <Heading2>Applications</Heading2>
+            <SectionItem>
+              <Text1>Coming soon...</Text1>
+            </SectionItem>
+          </Section>
+          <Section>
+            <Heading2>Experience</Heading2>
+            <ul>
+              <li>
+                <Text1>2024/4~ 株式会社L is B</Text1>
+              </li>
+
+              <li>
+                <Text1>2021/4~2024/3 トヨクモ株式会社</Text1>
+              </li>
+            </ul>
+          </Section>
+          <Section>
+            <Heading2>Likes</Heading2>
+            <HobbySubSectionWrap>
+              <Heading3>Web開発</Heading3>
+              <p>
                 <Text1>
-                  Bachelor of Medicine, Kanazawa University, 2015-2021
+                  Web開発全般に興味があります。
+                  <br />
+                  最近はフロントエンド分野、特にアニメーション (CSS/Canvas
+                  2D/WebGL等)
+                  を利用したインタラクションによるユーザー体験の向上に関心があります。
                 </Text1>
-              </SectionItem>
-            </Section>
-            <Section>
-              <Heading2>Links</Heading2>
-              <ul className="ml-3 list-inside">
-                {[
-                  {
-                    label: 'GitHub',
-                    url: 'https://github.com/motoshira',
-                  },
-                  {
-                    label: 'Bluesky',
-                    url: 'https://bsky.app/profile/motoshira.bsky.social',
-                  },
-                  {
-                    label: 'X (Twitter)',
-                    url: 'https://twitter.com/darjeeling743',
-                  },
-                  {
-                    label: 'AtCoder',
-                    url: 'https://atcoder.jp/users/motoshira',
-                  },
-                ].map(({ label, url }) => {
-                  return (
-                    <li key={label} className="ml-1 list-inside list-disc">
-                      <LinkText href={url}>{label}</LinkText>
-                    </li>
-                  );
-                })}
-              </ul>
-            </Section>
-          </SectionWrap>
+              </p>
+            </HobbySubSectionWrap>
+            <HobbySubSectionWrap>
+              <Heading3>プログラミング言語</Heading3>
+              <p>
+                <Text1>
+                  TypeScriptの他、Clojure/Common
+                  LispといったLisp系言語が好きです。
+                  <br />
+                  最近はWebGLを利用した3Dグラフィックスの実装に興味があり、GLSLを勉強中です。
+                  <br />
+                  現在、doxasさん主催の
+                  <LinkText href="https://webgl.souhonzan.org/entry/?v=2635">
+                    WebGLスクール
+                  </LinkText>
+                  を受講しています。
+                </Text1>
+              </p>
+            </HobbySubSectionWrap>
+            <HobbySubSectionWrap>
+              <Heading3>趣味</Heading3>
+              <p>
+                <Text1>読書やアニメ鑑賞、カラオケ、カフェ巡りなど</Text1>
+              </p>
+            </HobbySubSectionWrap>
+          </Section>
+          <Section>
+            <Heading2>Education</Heading2>
+            <SectionItem>
+              <Text1>
+                Bachelor of Medicine, Kanazawa University, 2015-2021
+              </Text1>
+            </SectionItem>
+          </Section>
+          <Section>
+            <Heading2>Links</Heading2>
+            <ul className="ml-3 list-inside">
+              {[
+                {
+                  label: 'GitHub',
+                  url: 'https://github.com/motoshira',
+                },
+                {
+                  label: 'Bluesky',
+                  url: 'https://bsky.app/profile/motoshira.bsky.social',
+                },
+                {
+                  label: 'X (Twitter)',
+                  url: 'https://twitter.com/darjeeling743',
+                },
+                {
+                  label: 'AtCoder',
+                  url: 'https://atcoder.jp/users/motoshira',
+                },
+              ].map(({ label, url }) => {
+                return (
+                  <li key={label} className="ml-1 list-inside list-disc">
+                    <LinkText href={url}>{label}</LinkText>
+                  </li>
+                );
+              })}
+            </ul>
+          </Section>
         </main>
       </div>
       <Bubbles />
