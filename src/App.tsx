@@ -5,8 +5,7 @@ import Heading3 from '@/components/Heading3';
 import Text1 from '@/components/Text1';
 import SectionItem from '@/components/SectionItem';
 import LinkText from '@/components/LinkText';
-import Bubble from '@/components/Bubble';
-import { useEffect, useState } from 'react';
+import Bubbles from './components/Bubbles';
 
 const Navigation = () => {
   return (
@@ -26,28 +25,28 @@ const HobbySubSectionWrap = ({ children }: { children: React.ReactNode }) => {
 };
 
 // TODO Rewrite with WebGLx
-const Bubbles = () => {
-  const [isPC, setIsPC] = useState(false);
-  const bubbleAmount = isPC ? 30 : 10;
-  useEffect(() => {
-    window
-      .matchMedia('screen and (min-width: 768px)')
-      .addEventListener('change', (e) => {
-        setIsPC(e.matches);
-      });
-  }, []);
-  return (
-    <div className="pointer-events-none h-[100vh] w-[100vw] bg-transparent fixed top-0 left-0">
-      {(() => {
-        const bubbles = [];
-        for (let i = 0; i < bubbleAmount; i++) {
-          bubbles.push(<Bubble key={i} />);
-        }
-        return bubbles;
-      })()}
-    </div>
-  );
-};
+/* const Bubbles = () => {
+ *   const [isPC, setIsPC] = useState(false);
+ *   const bubbleAmount = isPC ? 30 : 10;
+ *   useEffect(() => {
+ *     window
+ *       .matchMedia('screen and (min-width: 768px)')
+ *       .addEventListener('change', (e) => {
+ *         setIsPC(e.matches);
+ *       });
+ *   }, []);
+ *   return (
+ *     <div className="pointer-events-none h-[100vh] w-[100vw] bg-transparent fixed top-0 left-0">
+ *       {(() => {
+ *         const bubbles = [];
+ *         for (let i = 0; i < bubbleAmount; i++) {
+ *           bubbles.push(<Bubble key={i} />);
+ *         }
+ *         return bubbles;
+ *       })()}
+ *     </div>
+ *   );
+ * }; */
 
 function App() {
   return (
