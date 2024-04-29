@@ -21,7 +21,7 @@ const Navigation = () => {
   );
 };
 
-const HobbySubSectionWrap = ({ children }) => {
+const HobbySubSectionWrap = ({ children }: { children: React.ReactNode }) => {
   return <div className="flex flex-col w-full space-y-1">{children}</div>;
 };
 
