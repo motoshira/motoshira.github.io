@@ -51,7 +51,8 @@ const HobbySubSectionWrap = ({ children }: { children: React.ReactNode }) => {
 function App() {
   return (
     <div className="h-full w-full relative">
-      <div className="top-0 left-0 h-full w-full">
+      <Bubbles />
+      <div className="top-0 left-0 h-full w-full absolute">
         <Navigation />
         <main className="py-6">
           <Section>
@@ -162,7 +163,6 @@ function App() {
           </Section>
         </main>
       </div>
-      <Bubbles />
     </div>
   );
 }
