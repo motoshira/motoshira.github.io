@@ -55,7 +55,7 @@ const resize = (canvas: HTMLCanvasElement): void => {
 };
 
 const BUBBLE_AMOUNT = 20;
-const RADIUS_FACTOR = 0.00003;
+const RADIUS_FACTOR = 0.0001;
 const INIT_RADIUS = 0.001;
 const SPEED = 0.5;
 
