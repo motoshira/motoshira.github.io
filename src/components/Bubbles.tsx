@@ -122,6 +122,10 @@ const Bubbles = () => {
     const aPosition = gl.getAttribLocation(program, 'a_position');
     gl.enableVertexAttribArray(aPosition);
     gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
+    // bind resolution to fragment shader
+    const resolutionLocation = gl.getUniformLocation(program, "resolution");
+    gl.uniform2f(resolutionLocation, gl.canvas.width, gl.canvas.height);
+    // draw
     gl.clearColor(0.0, 0.0, 0.0, 0.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
