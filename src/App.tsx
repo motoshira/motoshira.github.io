@@ -5,8 +5,7 @@ import Heading3 from '@/components/Heading3';
 import Text1 from '@/components/Text1';
 import SectionItem from '@/components/SectionItem';
 import LinkText from '@/components/LinkText';
-import Bubble from '@/components/Bubble';
-import { useEffect, useState } from 'react';
+import Bubbles from './components/Bubbles';
 
 const Navigation = () => {
   return (
@@ -25,34 +24,11 @@ const HobbySubSectionWrap = ({ children }: { children: React.ReactNode }) => {
   return <div className="flex flex-col w-full space-y-1">{children}</div>;
 };
 
-// TODO Rewrite with WebGLx
-const Bubbles = () => {
-  const [isPC, setIsPC] = useState(false);
-  const bubbleAmount = isPC ? 30 : 10;
-  useEffect(() => {
-    window
-      .matchMedia('screen and (min-width: 768px)')
-      .addEventListener('change', (e) => {
-        setIsPC(e.matches);
-      });
-  }, []);
-  return (
-    <div className="pointer-events-none h-[100vh] w-[100vw] bg-transparent fixed top-0 left-0">
-      {(() => {
-        const bubbles = [];
-        for (let i = 0; i < bubbleAmount; i++) {
-          bubbles.push(<Bubble key={i} />);
-        }
-        return bubbles;
-      })()}
-    </div>
-  );
-};
-
 function App() {
   return (
     <div className="h-full w-full relative">
-      <div className="top-0 left-0 h-full w-full">
+      <Bubbles />
+      <div className="top-0 left-0 h-full w-full absolute">
         <Navigation />
         <main className="py-6">
           <Section>
@@ -104,23 +80,16 @@ function App() {
               <Heading3>プログラミング言語</Heading3>
               <p>
                 <Text1>
-                  TypeScriptの他、Clojure/Common
-                  LispといったLisp系言語が好きです。
+                  TypeScriptの他、Clojure/Common Lisp等のLisp系言語が好きです。
                   <br />
-                  最近はWebGLを利用した3Dグラフィックスの実装に興味があり、GLSLを勉強中です。
-                  <br />
-                  現在、doxasさん主催の
-                  <LinkText href="https://webgl.souhonzan.org/entry/?v=2635">
-                    WebGLスクール
-                  </LinkText>
-                  を受講しています。
+                  最近は専らTypeScriptを利用しています。
                 </Text1>
               </p>
             </HobbySubSectionWrap>
             <HobbySubSectionWrap>
               <Heading3>趣味</Heading3>
               <p>
-                <Text1>読書やアニメ鑑賞、カラオケ、カフェ巡りなど</Text1>
+                <Text1>読書、カラオケ、カフェ巡り、カレー屋巡りなど</Text1>
               </p>
             </HobbySubSectionWrap>
           </Section>
@@ -163,7 +132,6 @@ function App() {
           </Section>
         </main>
       </div>
-      <Bubbles />
     </div>
   );
 }
