@@ -80,10 +80,9 @@ function App() {
               <Heading3>プログラミング言語</Heading3>
               <p>
                 <Text1>
-                  TypeScriptの他、Clojure/Common
-                  LispといったLisp系言語が好きです。
+                  TypeScriptの他、Clojure/Common Lisp等のLisp系言語が好きです。
                   <br />
-                  最近はWebGLを利用した3Dグラフィックスに興味があり、GLSLを触ってみています。
+                  最近は専らTypeScriptを利用しています。
                 </Text1>
               </p>
             </HobbySubSectionWrap>
