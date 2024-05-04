@@ -55,9 +55,9 @@ const resize = (canvas: HTMLCanvasElement): void => {
 };
 
 const BUBBLE_AMOUNT = 20;
-const RADIUS_FACTOR = 0.0001;
+const RADIUS_FACTOR = 0.03;
 const INIT_RADIUS = 0.001;
-const SPEED = 0.5;
+const SPEED = 0.1;
 
 const Bubbles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -68,16 +68,16 @@ const Bubbles = () => {
   );
   // init Array on mount
   useEffect(() => {
-    const now = performance.now() + 0.0;
-    for (let i = 0; i < 100; i++) {
+    const now = performance.now() / 1000.0;
+    for (let i = 0; i < BUBBLE_AMOUNT; i++) {
       // x
       bubbleInfo.current[i * 4] = Math.random() * 2 - 1;
       // y
       bubbleInfo.current[i * 4 + 1] = -2.0;
       // radius
       bubbleInfo.current[i * 4 + 2] = INIT_RADIUS;
-      // time
-      bubbleInfo.current[i * 4 + 3] = now + i * 1000.0;
+      // startTime
+      bubbleInfo.current[i * 4 + 3] = now + i + Math.random() * 90.0;
     }
   }, []);
   useEffect(() => {
@@ -101,7 +101,9 @@ const Bubbles = () => {
   }, [canvasRef.current]);
   useEffect(() => {
     // init shaders
-    const gl = canvasRef.current?.getContext('webgl2');
+    const gl = canvasRef.current?.getContext('webgl2', {
+      // premultipliedAlpha: false,
+    });
     if (!gl) {
       return;
     }
@@ -134,56 +136,68 @@ const Bubbles = () => {
     gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
     const resolutionLocation = gl.getUniformLocation(program, 'resolution');
     const bubbleInfoLocation = gl.getUniformLocation(program, 'bubble_info');
+    const timeLocation = gl.getUniformLocation(program, 'time');
 
-    const updateBubbleInfo = () => {
-      const currentTime = performance.now();
+    const updateBubbleInfo = (currentTime: number) => {
       for (let i = 0; i < BUBBLE_AMOUNT; i++) {
-        const lastTime = bubbleInfo.current[i * 4 + 3];
-        const elapsedTime = (currentTime - lastTime) / 1000.0;
+        const startTime = bubbleInfo.current[i * 4 + 3];
+        const elapsedTime = currentTime - startTime;
         if (elapsedTime < 0.0) {
           continue;
         }
-        //x
-        const nx = bubbleInfo.current[i * 4] + Math.random() * 0.002 - 0.001;
+        // x
+        const nx = bubbleInfo.current[i * 4] + Math.random() * 0.0002 - 0.0001;
         // y
-        const ny = bubbleInfo.current[i * 4 + 1] + SPEED * elapsedTime;
+        const ny = SPEED * elapsedTime - 1.5;
         // radius
-        const r = bubbleInfo.current[i * 4 + 2];
-        const dr = elapsedTime * RADIUS_FACTOR * (1 / INIT_RADIUS - 1 / r);
-        const nr = r + dr;
+        const nr = Math.sqrt(INIT_RADIUS ** 2 + elapsedTime * RADIUS_FACTOR);
+        // console.log(nr);
         // FIXME 見えている部分がなくなったらリセット
         if (ny - nr > 2.0) {
-          bubbleInfo.current[i * 4 + 1] = -2.0;
+          // x
+          bubbleInfo.current[i * 4] = Math.random() * 2 - 1;
+          // y
+          bubbleInfo.current[i * 4 + 1] = -1.5;
+          // radius
           bubbleInfo.current[i * 4 + 2] = INIT_RADIUS;
-          bubbleInfo.current[i * 4 + 3] = currentTime + Math.random() * 10000.0;
+          // startTime
+          bubbleInfo.current[i * 4 + 3] = currentTime + Math.random() * 10.0;
           continue;
         }
         bubbleInfo.current[i * 4] = nx;
         bubbleInfo.current[i * 4 + 1] = ny;
         bubbleInfo.current[i * 4 + 2] = nr;
-        bubbleInfo.current[i * 4 + 3] = currentTime;
-        // TODO reset info when bubble is out of screencurrent
       }
     };
 
     // draw
+    let loopend = false;
     const loop = () => {
-      updateBubbleInfo();
+      if (loopend) {
+        return;
+      }
+      const currentTime = performance.now() / 1000;
+      updateBubbleInfo(currentTime);
       gl.useProgram(program);
-      gl.clear(gl.COLOR_BUFFER_BIT);
       gl.clearColor(0.0, 0.0, 0.0, 0.0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
       // gl.useProgram(program);
       gl.uniform2f(resolutionLocation, gl.canvas.width, gl.canvas.height);
+      gl.uniform1f(timeLocation, currentTime);
       gl.uniform4fv(bubbleInfoLocation, bubbleInfo.current);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       requestAnimationFrame(loop);
     };
     requestAnimationFrame(loop);
+    // avoid memory leak
+    return () => {
+      loopend = true;
+    };
   }, []);
   return (
     <canvas
       id="bubbles"
-      className="h-[100dvh] w-full fixed top-0 left-0"
+      className="h-[100dvh] w-full fixed top-0 left-0 mix-blend-dodge z-10 pointer-events-none"
       ref={canvasRef}
     />
   );
