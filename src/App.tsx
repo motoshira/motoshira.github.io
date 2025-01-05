@@ -163,7 +163,7 @@ function App() {
               </ul>
             </Section>
           </SectionWrap>
-          <Bubbles />
+          {/* <Bubbles /> */}
         </main>
       </div>
     </div>
