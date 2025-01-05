@@ -6,7 +6,6 @@ import Text1 from '@/components/Text1';
 import SectionWrap from '@/components/SectionWrap';
 import SectionItem from '@/components/SectionItem';
 import LinkText from '@/components/LinkText';
-import Bubbles from './components/Bubbles';
 import LinkWrap from './components/linkWrap';
 
 const Navigation = () => {
@@ -163,7 +162,6 @@ function App() {
               </ul>
             </Section>
           </SectionWrap>
-          {/* <Bubbles /> */}
         </main>
       </div>
     </div>
