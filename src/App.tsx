@@ -7,6 +7,7 @@ import SectionWrap from '@/components/SectionWrap';
 import SectionItem from '@/components/SectionItem';
 import LinkText from '@/components/LinkText';
 import Bubbles from './components/Bubbles';
+import LinkWrap from './components/linkWrap';
 
 const Navigation = () => {
   return (
@@ -21,8 +22,8 @@ const Navigation = () => {
   );
 };
 
-const HobbySubSectionWrap = ({ children }: { children: React.ReactNode }) => {
-  return <div className="flex flex-col w-full space-y-1">{children}</div>;
+const SubSectionWrap = ({ children }: { children: React.ReactNode }) => {
+  return <div className="flex flex-col w-full space-y-4">{children}</div>;
 };
 
 function App() {
@@ -46,10 +47,32 @@ function App() {
           </SectionWrap>
           <SectionWrap>
             <Section>
-              <Heading2>Applications</Heading2>
-              <SectionItem>
-                <Text1>Coming soon...</Text1>
-              </SectionItem>
+              <Heading2>Works</Heading2>
+              <SubSectionWrap>
+                <LinkWrap href="https://main.d29mqqgyf3frw5.amplifyapp.com">
+                  <Heading3>WebGL School 2024 Homework</Heading3>
+                </LinkWrap>
+                <p>
+                  <LinkText href="https://webgl.souhonzan.org/entry/?v=2635">
+                    WebGLスクール第11期
+                  </LinkText>
+                  <Text1>
+                    に参加させていただいた際に提出した課題一覧です。
+                  </Text1>
+                </p>
+              </SubSectionWrap>
+              <SubSectionWrap>
+                <LinkWrap href="https://gist.github.com/motoshira/806c3e5ebe3a929e8a5751ebad372cfb">
+                  <Heading3>
+                    クレジットカード明細の項目を分類するスクリプト
+                  </Heading3>
+                </LinkWrap>
+                <p>
+                  <Text1>
+                    自分の支出管理を楽にするためにやっつけで作りました。
+                  </Text1>
+                </p>
+              </SubSectionWrap>
             </Section>
           </SectionWrap>
           <SectionWrap>
@@ -68,7 +91,7 @@ function App() {
           <SectionWrap>
             <Section>
               <Heading2>Likes</Heading2>
-              <HobbySubSectionWrap>
+              <SubSectionWrap>
                 <Heading3>Web開発</Heading3>
                 <p>
                   <Text1>
@@ -79,24 +102,24 @@ function App() {
                     を利用したインタラクションによるユーザー体験の向上に関心があります。
                   </Text1>
                 </p>
-              </HobbySubSectionWrap>
-              <HobbySubSectionWrap>
+              </SubSectionWrap>
+              <SubSectionWrap>
                 <Heading3>プログラミング言語</Heading3>
                 <p>
                   <Text1>
                     TypeScriptの他、Clojure/Common
                     Lisp等のLisp系言語が好きです。
                     <br />
-                    最近は専らTypeScriptを利用しています。
+                    最近は専らTypeScriptを買いています。
                   </Text1>
                 </p>
-              </HobbySubSectionWrap>
-              <HobbySubSectionWrap>
+              </SubSectionWrap>
+              <SubSectionWrap>
                 <Heading3>趣味</Heading3>
                 <p>
                   <Text1>読書、カラオケ、カフェ巡り、カレー屋巡りなど</Text1>
                 </p>
-              </HobbySubSectionWrap>
+              </SubSectionWrap>
             </Section>
           </SectionWrap>
           <SectionWrap>
