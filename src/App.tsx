@@ -94,11 +94,10 @@ function App() {
                 <Heading3>Web開発</Heading3>
                 <p>
                   <Text1>
-                    フロントエンド・バックエンドを問わず、Web開発全般が好きです。
+                    Web開発全般、特にフロントエンドの領域に興味があります。
                     <br />
-                    アプリケーション開発者として、解決したい問題の定義から情報設計・モデリング、その後の実装・保守まで一気通貫で関われるような人でありたいと考えています。
-                    <br />
-                    具体的な技術としては、アニメーションやアクセシビリティ対応を通してユーザー体験を高めること・使いやすいアプリ・サービスを作ることに特に興味があります。
+                    人の役に立つもの・使いやすいものとはどのようまものか考えること・手を動かすことが好きです。
+                    (TODO もっど詳しく言語化する)
                   </Text1>
                 </p>
               </SubSectionWrap>
@@ -109,10 +108,11 @@ function App() {
                     TypeScriptの他、Clojure/Common
                     Lisp等のLisp系言語が好きです。
                     <br />
-                    最近は専らTypeScriptを買いています。
+                    最近は専らTypeScriptを書いています。
                   </Text1>
                 </p>
               </SubSectionWrap>
+
               <SubSectionWrap>
                 <Heading3>趣味</Heading3>
                 <p>
