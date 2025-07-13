@@ -61,18 +61,6 @@ function App() {
 									</Text1>
 								</p>
 							</SubSectionWrap>
-							<SubSectionWrap>
-								<LinkWrap href="https://gist.github.com/motoshira/806c3e5ebe3a929e8a5751ebad372cfb">
-									<Heading3>
-										クレジットカード明細の項目を分類するスクリプト
-									</Heading3>
-								</LinkWrap>
-								<p>
-									<Text1>
-										N-gramと単純ベイズを利用して、クレジットカード明細の項目を分類します。
-									</Text1>
-								</p>
-							</SubSectionWrap>
 						</Section>
 					</SectionWrap>
 					<SectionWrap>
@@ -86,40 +74,6 @@ function App() {
 									<Text1>2021/4~2024/3 トヨクモ株式会社</Text1>
 								</li>
 							</ul>
-						</Section>
-					</SectionWrap>
-					<SectionWrap>
-						<Section>
-							<Heading2>Likes</Heading2>
-							<SubSectionWrap>
-								<Heading3>Web開発</Heading3>
-								<p>
-									<Text1>
-										Web開発全般、特にフロントエンドの領域に興味があります。
-										<br />
-										人の役に立つもの・使いやすいものとはどのようまものか考えること・手を動かすことが好きです。
-										(TODO もっど詳しく言語化する)
-									</Text1>
-								</p>
-							</SubSectionWrap>
-							<SubSectionWrap>
-								<Heading3>プログラミング言語</Heading3>
-								<p>
-									<Text1>
-										TypeScriptの他、Clojure/Common
-										Lisp等のLisp系言語が好きです。
-										<br />
-										最近は専らTypeScriptを書いています。
-									</Text1>
-								</p>
-							</SubSectionWrap>
-
-							<SubSectionWrap>
-								<Heading3>趣味</Heading3>
-								<p>
-									<Text1>読書、カラオケ、カフェ巡り、カレー屋巡りなど</Text1>
-								</p>
-							</SubSectionWrap>
 						</Section>
 					</SectionWrap>
 					<SectionWrap>
