@@ -6,7 +6,8 @@ import Section from "@/components/Section";
 import SectionItem from "@/components/SectionItem";
 import SectionWrap from "@/components/SectionWrap";
 import Text1 from "@/components/Text1";
-import LinkWrap from "./components/linkWrap";
+import LinkWrap from "@/components/linkWrap";
+import myImage from "../../public/me.webp";
 
 const Navigation = () => {
 	return (
@@ -36,7 +37,7 @@ function App() {
 							<img
 								height="312"
 								width="312"
-								src="/me.webp"
+								src={myImage.src}
 								className="mx-auto rounded-[50%] shadow-md"
 								alt="my Logo"
 							/>
@@ -168,4 +169,12 @@ function App() {
 	);
 }
 
-export default App;
+const Page = () => {
+	return (
+		<div className="flex h-screen w-screen items-center justify-center bg-gray-100">
+			<App />
+		</div>
+	);
+};
+
+export default Page;
