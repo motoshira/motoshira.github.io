@@ -27,5 +27,8 @@
 				"organizeImports": "on"
 			}
 		}
+	},
+	"files": {
+		"experimentalScannerIgnores": ["node_modules", ".claude", ".next"]
 	}
 }
