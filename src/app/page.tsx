@@ -47,6 +47,12 @@ function App() {
 					</SectionWrap>
 					<SectionWrap>
 						<Section>
+							<Heading2>Purpose</Heading2>
+							TODO
+						</Section>
+					</SectionWrap>
+					<SectionWrap>
+						<Section>
 							<Heading2>Works</Heading2>
 							<SubSectionWrap>
 								<LinkWrap href="https://main.d29mqqgyf3frw5.amplifyapp.com">
@@ -63,6 +69,19 @@ function App() {
 							</SubSectionWrap>
 						</Section>
 					</SectionWrap>
+					<SectionWrap>
+						<Section>
+							<Heading2>Skills</Heading2>
+							TODO
+						</Section>
+					</SectionWrap>
+					<SectionWrap>
+						<Section>
+							<Heading2>Likes</Heading2>
+							TODO
+						</Section>
+					</SectionWrap>
+
 					<SectionWrap>
 						<Section>
 							<Heading2>Experience</Heading2>
