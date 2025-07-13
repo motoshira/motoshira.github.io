@@ -4,34 +4,45 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-- **Development**: `pnpm dev` - Start development server
-- **Build**: `pnpm build` - Build for production (runs TypeScript check first)
-- **Lint**: `pnpm lint` - Run ESLint with TypeScript support
-- **Preview**: `pnpm preview` - Preview production build locally
+- **Development**: `pnpm dev` - Start Next.js development server
+- **Build**: `pnpm build` - Build static site for production (outputs to `./dist/`)  
+- **Lint**: `pnpm lint` - Run Biome linter and formatter with auto-fix
 
 ## Architecture
 
-This is a personal portfolio website built with React + TypeScript + Vite, deployed to GitHub Pages at https://motoshira.net.
+This is a personal portfolio website built with Next.js 15 and configured for static export. The site is hosted at https://motoshira.net.
 
-### Tech Stack
-- **Frontend**: React 18 with TypeScript
-- **Build Tool**: Vite with plugins for React, GLSL shaders, and TypeScript paths
-- **Styling**: Tailwind CSS with PostCSS
-- **Graphics**: WebGL2 with custom GLSL shaders for animated bubble effects
-- **Package Manager**: pnpm
+### Key Technologies
+- **Next.js 15** with App Router - Static site generation
+- **React 19** - UI framework
+- **TypeScript** - Type safety with strict mode enabled
+- **Tailwind CSS v4** - Styling with custom color scheme (primary: #8bc34a, secondary: #ff9800)
+- **Biome** - Linting and formatting (tab indentation, double quotes)
 
-### Code Organization
-- `src/App.tsx` - Main portfolio content and structure
-- `src/components/` - Reusable UI components (headings, text, sections, links)
-- `src/components/Bubbles.tsx` - WebGL bubble animation background effect
-- `src/components/*.glsl` - GLSL vertex and fragment shaders for bubbles
-- Import paths use `@/` alias pointing to `src/`
+### Project Structure
+```
+src/
+├── app/
+│   ├── layout.tsx      # Root layout with metadata and Japanese locale
+│   ├── page.tsx        # Main page component with complete portfolio content
+│   └── globals.css     # Global styles
+└── components/         # Reusable UI components
+    ├── Heading1-3.tsx  # Typography components
+    ├── Text1-2.tsx     # Text components
+    ├── Section*.tsx    # Layout components
+    ├── LinkText.tsx    # Link component
+    └── linkWrap.tsx    # Link wrapper
+```
 
-### Key Features
-- WebGL2 animated bubble background using custom shaders
-- Component-based architecture with semantic HTML elements
-- TypeScript path mapping for clean imports
-- ESLint with TypeScript, React, and Tailwind CSS rules
-- Static site optimized for GitHub Pages deployment
+### Configuration Notes
+- **Static Export**: Next.js configured with `output: 'export'` for GitHub Pages deployment
+- **Build Output**: Custom `distDir: './dist'` instead of default `.next`
+- **Path Aliases**: `@/*` maps to `src/*` for clean imports
+- **Package Manager**: Uses pnpm (version 9.0.6)
+- **ESLint**: Disabled during builds in favor of Biome
 
-The site is a single-page application showcasing personal work, experience, and contact links.
+### Code Style
+- Tab indentation (configured in Biome)
+- Double quotes for strings
+- Organized imports enabled
+- Strict TypeScript configuration with unused variable checks
