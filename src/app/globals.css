@@ -1,10 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #8bc34a;
-  --color-secondary: #ff9800;
-  
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
+	--color-primary: #8bc34a;
+	--color-secondary: #ff9800;
+
+	--breakpoint-sm: 640px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+}
+
+.root {
+	--font-family-sans:
+		system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN",
+		"Hiragino Sans", "Yu Gothic Medium", "Yu Gothic", "Meiryo", "MS PGothic",
+		sans-serif;
 }
