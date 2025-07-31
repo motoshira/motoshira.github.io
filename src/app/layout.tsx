@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 	title: "motoshira.net",
 	description:
 		"motoshira.net はソフトウェアエンジニア motoshira のサイトです。",
-	icons: "/favicon.png",
+	icons: "/favicon.svg",
 	openGraph: {
 		title: "motoshira.net",
 		description:
