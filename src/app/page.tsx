@@ -8,15 +8,10 @@ import myImage from "../../public/me.svg";
 const Navigation = () => {
 	return (
 		<nav className="sticky top-0 h-[60px] w-full bg-primary z-10">
-			<div className="mx-auto flex justify-center md:justify-start h-full items-stretch w-full md:max-w-[60%]">
-				<h1 className="flex flex-row justify-center md:justify-start items-stretch px-6 text-lg md:text-xl text-header-font font-bold decoration-2 hover:bg-primary-light">
+			<div className="mx-auto flex h-full items-stretch w-full md:max-w-[60%]">
+				<h1 className="flex flex-row items-stretch px-6 text-lg md:text-xl text-header-font font-bold decoration-2 hover:bg-primary-light">
 					<a href="/" className="flex flex-row items-center gap-x-4">
-						<img
-							className="hidden md:block"
-							src={myImage.src}
-							width={48}
-							height={48}
-						/>
+						<img src={myImage.src} width={48} height={48} />
 						<span>motoshira.net</span>
 					</a>
 				</h1>
