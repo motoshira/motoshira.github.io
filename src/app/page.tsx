@@ -11,9 +11,9 @@ import myImage from "../../public/me.svg";
 const Navigation = () => {
 	return (
 		<nav className="sticky top-0 h-[60px] w-full bg-primary z-10">
-			<div className="mx-auto flex h-full px-2 items-stretch w-full md:max-w-[60%]">
-				<h1 className="flex flex-row justify-start items-stretch text-lg text-header-font decoration-2 hover:bg-[color-mix(in_srgb,theme(colors.primary)_70%,white_30%)]">
-					<a href="/" className="flex flex-row items-center px-4 gap-x-3">
+			<div className="mx-auto flex h-full items-stretch w-full md:max-w-[60%]">
+				<h1 className="flex flex-row justify-start items-stretch px-6 text-lg text-header-font decoration-2 hover:bg-[color-mix(in_srgb,theme(colors.primary)_70%,white_30%)]">
+					<a href="/" className="flex flex-row items-center gap-x-3">
 						<img src={myImage.src} width={48} height={48} />
 						<span>motoshira.net</span>
 					</a>
