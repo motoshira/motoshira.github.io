@@ -1,20 +1,22 @@
 import Heading2 from "@/components/Heading2";
-import Heading3 from "@/components/Heading3";
 import LinkText from "@/components/LinkText";
 import Section from "@/components/Section";
-import SectionItem from "@/components/SectionItem";
 import SectionWrap from "@/components/SectionWrap";
 import Text1 from "@/components/Text1";
-import LinkWrap from "@/components/linkWrap";
 import myImage from "../../public/me.svg";
 
 const Navigation = () => {
 	return (
 		<nav className="sticky top-0 h-[60px] w-full bg-primary z-10">
-			<div className="mx-auto flex h-full items-stretch w-full md:max-w-[60%]">
-				<h1 className="flex flex-row justify-start items-stretch px-6 text-lg text-header-font decoration-2 hover:bg-[color-mix(in_srgb,theme(colors.primary)_70%,white_30%)]">
-					<a href="/" className="flex flex-row items-center gap-x-3">
-						<img src={myImage.src} width={48} height={48} />
+			<div className="mx-auto flex justify-center md:justify-start h-full items-stretch w-full md:max-w-[60%]">
+				<h1 className="flex flex-row justify-center md:justify-start items-stretch px-6 text-lg md:text-xl text-header-font font-bold decoration-2 hover:bg-primary-light">
+					<a href="/" className="flex flex-row items-center gap-x-4">
+						<img
+							className="hidden md:block"
+							src={myImage.src}
+							width={48}
+							height={48}
+						/>
 						<span>motoshira.net</span>
 					</a>
 				</h1>
@@ -34,68 +36,31 @@ function App() {
 			<main>
 				<SectionWrap>
 					<Section>
-						<Heading2>Purpose</Heading2>
-						TODO
-					</Section>
-				</SectionWrap>
-				<SectionWrap>
-					<Section>
-						<Heading2>Works</Heading2>
+						<Heading2>Profile</Heading2>
 						<SubSectionWrap>
-							<LinkWrap href="https://main.d29mqqgyf3frw5.amplifyapp.com">
-								<Heading3>WebGL School 2024 Homework</Heading3>
-							</LinkWrap>
 							<p>
-								<LinkText href="https://webgl.souhonzan.org/entry/?v=2635">
-									WebGLスクール第11期
-								</LinkText>
-								<Text1>に参加した際に提出した課題一覧です。</Text1>
+								<Text1>
+									2021年に大学を卒業後、BtoB
+									SaaS企業でソフトウェアエンジニアをしています。
+								</Text1>
+							</p>
+							<p>
+								<Text1>
+									特に興味のある領域：複雑GUI・プロトタイピング・アクセシビリティ・UIデザイン
+								</Text1>
+							</p>
+							<p>
+								<Text1>趣味：読書、ゲーム、カフェ巡り、カレー屋巡り</Text1>
 							</p>
 						</SubSectionWrap>
 					</Section>
 				</SectionWrap>
 				<SectionWrap>
 					<Section>
-						<Heading2>Profile</Heading2>
+						<Heading2>Works</Heading2>
 						<SubSectionWrap>
 							<p>TODO</p>
 						</SubSectionWrap>
-					</Section>
-				</SectionWrap>
-				<SectionWrap>
-					<Section>
-						<Heading2>Skills</Heading2>
-						TODO
-					</Section>
-				</SectionWrap>
-				<SectionWrap>
-					<Section>
-						<Heading2>Likes</Heading2>
-						TODO
-					</Section>
-				</SectionWrap>
-
-				<SectionWrap>
-					<Section>
-						<Heading2>Experience</Heading2>
-						<ul>
-							<li>
-								<Text1>2024/4~ 株式会社L is B</Text1>
-							</li>
-							<li>
-								<Text1>2021/4~2024/3 トヨクモ株式会社</Text1>
-							</li>
-						</ul>
-					</Section>
-				</SectionWrap>
-				<SectionWrap>
-					<Section>
-						<Heading2>Education</Heading2>
-						<SectionItem>
-							<Text1>
-								Bachelor of Medicine, Kanazawa University, 2015-2021
-							</Text1>
-						</SectionItem>
 					</Section>
 				</SectionWrap>
 				<SectionWrap>

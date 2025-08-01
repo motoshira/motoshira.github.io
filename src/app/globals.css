@@ -2,6 +2,7 @@
 
 @theme {
 	--color-primary: #4372ff;
+	--color-primary-light: color-mix(in srgb, var(--color-primary) 80%, white 20%);
 	--color-secondary: #ff9900;
 	--color-font: #333333;
 	--color-background: #ffffff;
