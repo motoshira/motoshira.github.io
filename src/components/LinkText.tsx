@@ -12,7 +12,7 @@ const LinkText = ({ href, children }: Props): ReactElement => {
 			href={href}
 			target="_blank"
 			rel="noopener noreferrer"
-			className="text-blue-400 underline decoration-2 hover:opacity-70"
+			className="text-blue-400 font-bold underline decoration-2 hover:opacity-70"
 		>
 			<Text1>{children}</Text1>
 		</a>
