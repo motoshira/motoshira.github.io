@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Heading2 from "@/components/Heading2";
 import LinkText from "@/components/LinkText";
 import Section from "@/components/Section";
@@ -11,7 +12,13 @@ const Navigation = () => {
 			<div className="mx-auto flex h-full items-stretch w-full md:max-w-[60%]">
 				<h1 className="flex flex-row items-stretch px-6 text-lg md:text-xl text-header-font font-bold decoration-2 hover:bg-primary-light">
 					<a href="/" className="flex flex-row items-center gap-x-4">
-						<img src={myImage.src} width={48} height={48} />
+						{/* <img src={myImage.src} width={48} height={48} /> */}
+						<Image
+							src={myImage}
+							alt="motoshiraのアイコン"
+							width={48}
+							height={48}
+						/>
 						<span>motoshira.net</span>
 					</a>
 				</h1>
