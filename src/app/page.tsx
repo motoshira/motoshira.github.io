@@ -93,7 +93,7 @@ function App() {
 								<WorksItem
 									title="ずんだもんとトレーニング"
 									img={zundamon}
-									description="ずんだもんがカウントを読み上げてくれる、トレーニング用タイマーです。 (制作中)"
+									description="筋トレ用のタイマーアプリです。ずんだもんの声でカウントを読み上げます。 (制作中)"
 								/>
 							</div>
 						</SubSectionWrap>
