@@ -50,7 +50,7 @@ const WorksItem = ({
 			<Image
 				src={img}
 				alt={title}
-				className="w-full aspect-16/9 object-contain bg-gray-100"
+				className="w-full aspect-16/9 object-contain bg-gray-100 rounded-sm"
 			/>
 			<p className="py-2">
 				<Text1>{description}</Text1>
