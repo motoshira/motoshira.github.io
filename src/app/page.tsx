@@ -1,10 +1,12 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Heading2 from "@/components/Heading2";
 import LinkText from "@/components/LinkText";
 import Section from "@/components/Section";
 import SectionWrap from "@/components/SectionWrap";
 import Text1 from "@/components/Text1";
 import myImage from "../../public/me.svg";
+import zundamon from "../../public/works/zundamon.jpg";
+import { ReactNode } from "react";
 
 const Navigation = () => {
 	return (
@@ -29,6 +31,32 @@ const Navigation = () => {
 
 const SubSectionWrap = ({ children }: { children: React.ReactNode }) => {
 	return <div className="flex flex-col w-full space-y-4">{children}</div>;
+};
+
+const WorksItem = ({
+	title,
+	img,
+	description,
+}: {
+	title: string;
+	img: StaticImageData;
+	description: ReactNode;
+}) => {
+	return (
+		<div className="flex flex-col items-start space-y-2 p-4 bg-white rounded-lg shadow-md">
+			<h3 className="text-left text-base md:text-lg font-bold py-4 ">
+				{title}
+			</h3>
+			<Image
+				src={img}
+				alt={title}
+				className="w-full aspect-16/9 object-contain bg-gray-100"
+			/>
+			<p className="py-2">
+				<Text1>{description}</Text1>
+			</p>
+		</div>
+	);
 };
 
 function App() {
@@ -61,7 +89,13 @@ function App() {
 					<Section>
 						<Heading2>Works</Heading2>
 						<SubSectionWrap>
-							<p>TODO</p>
+							<div className="grid md:grid-cols-3 md:gap-2">
+								<WorksItem
+									title="ずんだもんとトレーニング"
+									img={zundamon}
+									description="ずんだもんがカウントを読み上げてくれる、トレーニング用タイマーです。 (制作中)"
+								/>
+							</div>
 						</SubSectionWrap>
 					</Section>
 				</SectionWrap>
