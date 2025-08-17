@@ -105,6 +105,10 @@ function App() {
 						<ul className="ml-3 list-inside">
 							{[
 								{
+									label: "Zenn",
+									url: "https://zenn.dev/motoshira4",
+								},
+								{
 									label: "GitHub",
 									url: "https://github.com/motoshira",
 								},
