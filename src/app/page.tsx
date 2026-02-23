@@ -64,12 +64,10 @@ const WorksItem = ({
 		);
 	}, [img, title, href]);
 	return (
-		<div className="flex flex-col items-start space-y-2 p-4 bg-white rounded-lg shadow-md">
-			<h3 className="text-left text-base md:text-lg font-bold py-4 ">
-				{title}
-			</h3>
+		<div className="flex flex-col items-start space-y-4 p-4 bg-white rounded-lg shadow-md">
+			<h3 className="text-left text-base md:text-lg font-bold ">{title}</h3>
 			{image}
-			<p className="py-2">
+			<p>
 				<Text1>{description}</Text1>
 			</p>
 		</div>
