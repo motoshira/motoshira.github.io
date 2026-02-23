@@ -6,7 +6,9 @@ import SectionWrap from "@/components/SectionWrap";
 import Text1 from "@/components/Text1";
 import myImage from "../../public/me.svg";
 import zundamon from "../../public/works/zundamon.jpg";
-import { ReactNode } from "react";
+import pomodoroTimerPoc from "../../public/works/pomodoro-timer-poc.jpg";
+import { ReactNode, useMemo } from "react";
+import Link from "next/link";
 
 const Navigation = () => {
 	return (
@@ -37,21 +39,36 @@ const WorksItem = ({
 	title,
 	img,
 	description,
+	href,
 }: {
 	title: string;
 	img: StaticImageData;
 	description: ReactNode;
+	href?: string;
 }) => {
-	return (
-		<div className="flex flex-col items-start space-y-2 p-4 bg-white rounded-lg shadow-md">
-			<h3 className="text-left text-base md:text-lg font-bold py-4 ">
-				{title}
-			</h3>
+	const image = useMemo(() => {
+		return href ? (
+			<Link href={href} target="_blank" rel="noopener noreferrer">
+				<Image
+					src={img}
+					alt={title}
+					className="w-full aspect-16/9 object-contain bg-gray-100 rounded-sm"
+				/>
+			</Link>
+		) : (
 			<Image
 				src={img}
 				alt={title}
 				className="w-full aspect-16/9 object-contain bg-gray-100 rounded-sm"
 			/>
+		);
+	}, [img, title, href]);
+	return (
+		<div className="flex flex-col items-start space-y-2 p-4 bg-white rounded-lg shadow-md">
+			<h3 className="text-left text-base md:text-lg font-bold py-4 ">
+				{title}
+			</h3>
+			{image}
 			<p className="py-2">
 				<Text1>{description}</Text1>
 			</p>
@@ -90,6 +107,12 @@ function App() {
 						<Heading2>Works</Heading2>
 						<SubSectionWrap>
 							<div className="grid md:grid-cols-3 md:gap-2">
+								<WorksItem
+									href="https://github.com/motoshira/pomodoro-timer-poc"
+									title="Pomodoro Timer"
+									img={pomodoroTimerPoc}
+									description="シンプルなポモドーロタイマーです。"
+								/>
 								<WorksItem
 									title="ずんだもんとトレーニング"
 									img={zundamon}
